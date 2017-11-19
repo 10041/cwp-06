@@ -26,4 +26,16 @@ module.exports = class helb {
 			body
 		}
 	}
+	static getLog(req, resp, payload, cb){
+		const logFolderPath = path.resolve(`./log`);
+		let dir = fs.readdirSync(logFolderPath);
+		let logs = [];
+
+		dir.forEach(currentFile => {
+			let filePath = `${logFolderPath}\\${currentFile}`;
+			let logFile = require(filePath);
+			logs.push(logFile);
+		});
+		cb(null, logs)
+	}
 };

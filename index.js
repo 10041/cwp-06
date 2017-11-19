@@ -1,7 +1,7 @@
 const http = require('http');
 const url = require('url');
-
-const{Log, CreateLogObjFromReq} = require("./logger")
+const Array = require("./sort");
+const{Log, CreateLogObjFromReq, getLog} = require("./logger")
 const {Check} = require("./check");
 const error = require("./error");
 
@@ -26,6 +26,7 @@ const handlers = {
 	"/api/articles/delete": deleteArticle,
 	"/api/comments/create": createComment,
   "/api/comments/delete": deleteComment,
+  "/api/logs": getLog,
   "/api/error/400": requestInvalid
 };
 

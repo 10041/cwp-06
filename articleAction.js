@@ -7,8 +7,37 @@ module.exports = class articleAndCommentAction{
 
     static getAllArticles(req, res, payload, cb) 
     {
-        cb(null, unit.getInstance());
+        const { page, limit, includeDeps, sortField, sortOrder } = payload;
+        const itemCount = unit.getInstance().articles.length;
+		const pages = Math.ceil(itemCount / limit);
+		const firstIndex = page * limit - limit;
+		const lastIndex = page * limit > itemCount ? itemCount : page * limit;
+
+        if (itemCount < lastIndex) cb({ code: 500, message: "Incorrect page params" });
+        
+        try{
+            let resultArticles = unit.getInstance().articles
+			.slice(firstIndex, lastIndex) // array start with zero
+            .sortByField(sortOrder, sortField);
+            resultArticles.map(item => {
+                if (!includeDeps) delete item.comments;
+				return item;
+            });
+            cb(null, {
+                items: resultArticles,
+                meta: {
+                    page,
+                    pages,
+                    count: itemCount,
+                    limit
+                }
+            });
+        }
+		catch(err){
+            cb({ code: 500, message: err });
+        }
     }
+    //static getLogs()
     static readArticleById(req, res, payload, cb) 
     {
         let result = unit.getInstance().articles.filter((item) => {

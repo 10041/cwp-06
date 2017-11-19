@@ -1,15 +1,22 @@
 [
 	{
 		"url": "/api/articles/readall",
-		"props": []
+		"props": [
+			
+		]
+	},
+	{
+		"url": "/api/logs",
+		"props": [
+			
+		]
 	},
 	{
 		"url": "/api/articles/read",
 		"props": [
 			{
 				"name": "id",
-				"type": "string",
-				"required": true
+				"type": "string"
 			}
 		]
 	},
@@ -18,23 +25,19 @@
 		"props": [
 			{
 				"name": "title",
-				"type": "string",
-				"required": true
+				"type": "string"
 			},
 			{
 				"name": "text",
-				"type": "string",
-				"required": true
+				"type": "string"
 			},
 			{
 				"name": "date",
-				"type": "string",
-				"required": true
+				"type": "number"
 			},
 			{
 				"name": "author",
-				"type": "string",
-				"required": true
+				"type": "string"
 			}
 		]
 	},
@@ -43,28 +46,23 @@
 		"props": [
 			{
 				"name": "title",
-				"type": "string",
-				"required": true
+				"type": "string"
 			},
 			{
 				"name": "text",
-				"type": "string",
-				"required": true
+				"type": "string"
 			},
 			{
 				"name": "date",
-				"type": "string",
-				"required": true
+				"type": "number"
 			},
 			{
 				"name": "author",
-				"type": "string",
-				"required": true
+				"type": "string"
 			},
 			{
 				"name": "id",
-				"type": "string",
-				"required": true
+				"type": "string"
 			}
 		]
 	},
@@ -73,8 +71,7 @@
 		"props": [
 			{
 				"name": "id",
-				"type": "string",
-				"required": true
+				"type": "string"
 			}
 		]
 	},
@@ -83,23 +80,19 @@
 		"props": [
 			{
 				"name": "text",
-				"type": "string",
-				"required": true
+				"type": "string"
 			},
 			{
 				"name": "date",
-				"type": "string",
-				"required": true
+				"type": "number"
 			},
 			{
 				"name": "author",
-				"type": "string",
-				"required": true
+				"type": "string"
 			},
 			{
 				"name": "articleId",
-				"type": "string",
-				"required": true
+				"type": "string"
 			}
 		]
 	},
@@ -108,13 +101,11 @@
 		"props": [
 			{
 				"name": "articleId",
-				"type": "string",
-				"required": true
+				"type": "string"
 			},
 			{
 				"name": "commentId",
-				"type": "string",
-				"required": true
+				"type": "string"
 			}
 		]
 	}
